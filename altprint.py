@@ -46,8 +46,8 @@ def mprint(variables,
     color_end = '\033[0m'
 
     # variables
-    list_var = variables[0]
-    str_var = variables[1]
+    str_var = variables[0]
+    list_var = variables[1]
 
 
     print(list_var)
