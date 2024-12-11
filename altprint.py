@@ -49,8 +49,6 @@ def mprint(variables,
     str_var = variables[0]
     list_var = variables[1]
 
-
-    print(list_var)
     if title == '':
         print(symbol * len_box)
     else:
