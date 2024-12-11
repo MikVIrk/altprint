@@ -2,7 +2,7 @@ import numpy as np
 ##############################################################################
 # Функция для печати названий переменных и их значений из списка
 ###############################################################################
-def mprint(str_var,
+def mprint(variables,
            title='', len_box=40, symbol='-',
            color='blue',
            is_italic=False,
@@ -45,8 +45,12 @@ def mprint(str_var,
     color_start = f'\033[{colors.get(color)}m{italic}{bold}'
     color_end = '\033[0m'
 
+    # variables
+    list_var = variables[0]
+    str_var = variables[1]
 
-    list_var = [item.strip() for item in str_var.split(',')]
+
+    print(list_var)
     if title == '':
         print(symbol * len_box)
     else:
@@ -55,24 +59,8 @@ def mprint(str_var,
         print(f'{start_str}\033[{colors.get(color)}m{title} \033[0m{end_str}')
     # print()
 
-    for var in list_var:
+    for i in range(len(list_var)):
         # print(var)
-        print(f'  {color_start}{var}:{color_end} {eval(var)}')
+        print(f'  {color_start}{str_var[i]}:{color_end} {list_var[i]}')
 
     print(symbol * len_box)
-
-
-# Пример использования
-val1 = 'значение1'
-val2 = 100500
-val3 = np.arange(3,10,2)
-list_ = [3, 5, 2]
-clrs = {
-    'black' : '30',
-    'red' :  '31',
-    'green' : '32',
-    'yellow' : '33'}
-
-mprint('val1,val2, val3, type(val3), val3.shape', 'Тест', len_box=50, symbol='*')
-mprint("type(list_), len(list_), list_", color='red', is_italic=False)
-mprint('type(clrs), clrs.keys(), clrs.values()', color='green', is_italic=True)

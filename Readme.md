@@ -10,6 +10,6 @@ clrs = {
     'green' : '32',
     'yellow' : '33'}
 
-mprint('val1,val2, val3, type(val3), val3.shape', 'Тест', len_box=50, symbol='*')
-mprint("type(list_), len(list_), list_", color='red', is_italic=False)
-mprint('type(clrs), clrs.keys(), clrs.values()', color='green', is_italic=True)
+mprint([['val1,val2, val3, type(val3), val3.shape'], [val1,val2, val3, type(val3), val3.shape]], 'Тест', len_box=50, symbol='*')
+mprint([["type(list_), len(list_), list_", color='red'], [type(list_), len(list_), list_]], is_italic=False)
+mprint([['type(clrs), clrs.keys(), clrs.values()'], [type(clrs), clrs.keys(), clrs.values()]], color='green', is_italic=True)
