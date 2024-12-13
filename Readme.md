@@ -57,7 +57,7 @@ mprint('lst, lst2[1], len(lst), type(lst2), np.zeros(10)', color='green', title=
 ```
 Вывод:
 
-![alt text](image.png)
+![alt text](images/image.png)
 
 ## Ещё пример
 
@@ -78,7 +78,7 @@ mprint('type(clrs), clrs.keys(), clrs.values()', color='red', is_italic=True)
 ```
 Вывод:
 
-![alt text](image-1.png)
+![alt text](images/image-1.png)
 
 Смысл функции в том, что мы передаём в неё список переменных разделённых запятой в виде строки, а на выходе получаем вывод в виде: 
   
@@ -87,3 +87,5 @@ mprint('type(clrs), clrs.keys(), clrs.values()', color='red', is_italic=True)
 ><span style="color:violet">Переменная2:</span>  ЗначениеПеременной2
   
 >и т.д.
+
+Это очень удобно при отладке кода.
