@@ -62,3 +62,7 @@ def mprint(variables,
         print(f'  {color_start}{str_var[i]}:{color_end} {list_var[i]}')
 
     print(symbol * len_box)
+
+def cprint():
+    
+    pass
