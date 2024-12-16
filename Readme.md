@@ -1,4 +1,6 @@
-# Пример использования
+# Пример использовани
+
+## Функция "mprint"
 
 
 ``` python
@@ -89,3 +91,36 @@ mprint('type(clrs), clrs.keys(), clrs.values()', color='red', is_italic=True)
 >и т.д.
 
 Это очень удобно при отладке кода.
+
+## Функция "cprint"
+
+Цвета для форматирования текста вставляются в строковом виде:
+
+        colors: |r - red
+                |g - green
+                |y - yellow
+                |b - blue
+                |v - violet
+                |t - turquoise
+                |w - whait
+                || - сanceling color printing
+        other:  |B - bold
+                |I - italic
+
+Примеры:
+``` python
+cprint('|y','|B', '|t', 100, "Hel|rlo", "w||orld", 123, '|v', True, '|B', '|g', sep=', ', end='\n')
+cprint(1, ' |I', '|B ', "This is a longer||", "|ystring", '|I', "with multiple", "|bparts.", 5, '||', 10, '|v',  '|I', sep=', ')
+cprint("This is a longer", "|ystring", "with multiple", "|tparts.", 5, '||', 10, sep=':')
+
+cprint('|y', 'jfgd||fgh')
+cprint( 'lkhglgjh')
+
+cprint( 'Тестовое сообщение в несколько слов', '|r')
+
+cprint( f'Тестовое|y сообщение|I {IO}в ||несколько слов')
+cprint('Начало', "|v", 'Тестовое|g|I сообщение в ||несколько слов', sep=' f-f ', end='The END')
+```
+Вывод:
+
+![alt text](Images/image-2.png)

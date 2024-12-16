@@ -58,11 +58,84 @@ def mprint(variables,
     # print()
 
     for i in range(len(list_var)):
-        # print(var)
         print(f'  {color_start}{str_var[i]}:{color_end} {list_var[i]}')
 
     print(symbol * len_box)
 
-def cprint():
+##############################################################################
+# Функция, упрощающая вывод текста в цвете
+###############################################################################
+def cprint(*args, sep=' ', end='\n'):
+    """
+    Prints text in different colors
+
+    Args:
+        *args:  Unlimited number of arguments to print.
+        sep: Separator between arguments (default: ' ').
+        end: Character to print at the end (default: '\n').
+
+        colors: |r - red
+                |g - green
+                |y - yellow
+                |b - blue
+                |v - violet
+                |t - turquoise
+                |w - whait
+                || - сanceling color printing
+        other:  |B - bold
+                |I - italic
+    """
+    # sep, end = ' ', '\n'
+    dict_color = {'||': '\033[0m', '|r': '\033[31m', '|g': '\033[32m', '|y': '\033[33m',
+                  '|b': '\033[34m', '|v': '\033[35m', '|t': '\033[36m', '|w': '\033[37m',
+                  '|B': '\033[1m', '|I': '\033[3m'}
+
+    args = list(args)
+    args_new = args.copy()
+    str_for_print = ''
+
+    # Если разделитель не знак пробела и цвет задан отдельным аргументом,
+    #   то для того, чтобы не печатать лишние разделители,
+    #   аргумент цвета присоединяется к соседнему аргументу.
+
+    # Обработка начали списка аргументов
+    for i in range(len(args)):
+        ind = i
+
+        separate = '' if i == len(args) - 1 else sep
+
+        if str(args[ind]).strip() in dict_color.keys():
+
+            args_new[1] = args_new[0] + str(args_new[1])
+            args_new.pop(0)
+
+        else:
+            break
+
+    # Обработка конца списка аргументов
+    args = args_new.copy()
+
+    for i in range(len(args), 0, -1):
+        ind = i-1
+
+        if str(args[ind]).strip() in dict_color.keys():
+            args_new[ind-1] = str(args_new[ind-1]) + args_new[ind]
+            args_new.pop(ind)
+        else:
+            break
+
+
+    # Обработка середины списка аргументов
+    for i in range(len(args_new)):
+        separate = '' if str(args_new[i]).strip() in dict_color.keys() or i==len(args_new)-1 else sep
+        str_for_print = str_for_print + str(args_new[i]) + separate
+
+    # Замена на паттерны форматирования
+    for j in dict_color.keys():
+
+        str_for_print = str_for_print.replace(str(j), dict_color[j])
+
+    
+    print(str_for_print, end=end)
     
     pass
