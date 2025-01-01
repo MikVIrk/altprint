@@ -65,7 +65,7 @@ def mprint(variables,
 ##############################################################################
 # Функция, упрощающая вывод текста в цвете
 ###############################################################################
-def cprint(*args, sep=' ', end='\n'):
+def cprint(*args, sep=' ', end='\n', is_visible=True):
     """
     Prints text in different colors
 
@@ -124,7 +124,6 @@ def cprint(*args, sep=' ', end='\n'):
         else:
             break
 
-
     # Обработка середины списка аргументов
     for i in range(len(args_new)):
         separate = '' if str(args_new[i]).strip() in dict_color.keys() or i==len(args_new)-1 else sep
@@ -134,8 +133,8 @@ def cprint(*args, sep=' ', end='\n'):
     for j in dict_color.keys():
 
         str_for_print = str_for_print.replace(str(j), dict_color[j])
-
     
-    print(str_for_print, end=end)
+    if is_visible:
+        print(str_for_print, end=end)
     
-    pass
+    return str_for_print + end
